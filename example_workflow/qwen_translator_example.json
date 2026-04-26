@@ -1,0 +1,145 @@
+{
+  "id": "fd2ffc3e-c1b1-4789-ac8a-91d49da6a324",
+  "revision": 0,
+  "last_node_id": 12,
+  "last_link_id": 11,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "QwenModelLoader",
+      "pos": [
+        196.5,
+        304.5
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "qwen_model",
+          "type": "QWEN_MODEL",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenModelLoader"
+      },
+      "widgets_values": [
+        "Qwen3-8B",
+        "bfloat16",
+        "8bit",
+        "auto"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "QwenTranslator",
+      "pos": [
+        577.4545454545458,
+        303.2396694214876
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "qwen_model",
+          "type": "QWEN_MODEL",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "english_prompt",
+          "type": "STRING",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenTranslator"
+      },
+      "widgets_values": [
+        "You are an expert AI image generation prompt writer.\n\nYour job is to read a Korean sentence, deeply understand the scene, \nmood, and intent behind it, then write a rich, detailed English prompt \noptimized for AI image generation models.\n\n## YOUR APPROACH\n\n### Step 1: Understand the intent\n- What is the core subject?\n- What is the emotional tone and atmosphere?\n- What time of day, lighting, and setting is implied?\n- What details are not stated but would naturally exist in this scene?\n\n### Step 2: Expand with natural details\nAdd details the user didn't explicitly mention but would logically exist:\n- Lighting conditions (golden hour, soft diffused light, harsh shadows, etc.)\n- Environmental details (weather, textures, background elements)\n- Character details (expression, pose, subtle body language)\n- Atmosphere and mood (tense, serene, melancholic, vibrant, etc.)\n- Camera perspective (close-up portrait, wide establishing shot, etc.)\n\n### Step 3: Write as flowing descriptive English\n- Write in natural descriptive English phrases, NOT a list of tags\n- Use evocative, visual language\n- Connect ideas with natural phrasing\n- Be specific and concrete rather than vague and generic\n- Length: 3 to 5 descriptive sentences\n\n## STYLE RULES\n- Output ONLY English, no Korean characters\n- No bullet points, no numbered lists, no headers\n- Write as continuous descriptive prose\n- Always end with one line describing the photographic/artistic style\n- Do NOT start with \"A photo of\" or \"An image of\"\n\n## EXAMPLES\n\nInput: \"빨간 머리의 20대 여성이 카페에서 창가에 앉아 커피를 마시며 창밖을 바라보고 있다\"\nOutput: \"A young woman in her mid-twenties with vibrant red hair sits alone at a small wooden table beside a rain-streaked cafe window, both hands wrapped around a warm ceramic coffee cup. Her gaze drifts softly toward the street outside, eyes slightly unfocused, lost in quiet thought. Autumn leaves press gently against the glass, and the interior glows with the amber warmth of Edison bulbs. The scene feels intimate and unhurried, as if time has slowed just for her. Shot with a shallow depth of field, soft bokeh blurring the busy cafe behind her, rendered in the warm tones of professional lifestyle photography.\"\n\nInput: \"노을이 지는 해변에서 흰 드레스를 입은 여성이 파도를 맞으며 양팔을 벌리고 있다\"\nOutput: \"A woman in a flowing white sundress stands at the edge of the shoreline as shallow waves wash over her bare feet, her arms stretched wide open as if embracing the entire horizon. The sky behind her erupts in deep shades of amber, coral, and violet as the sun melts into the ocean, casting long golden light across the wet sand and painting her silhouette in warm backlight. Her hair streams sideways in the sea breeze, and her expression carries a sense of pure liberation and quiet joy. The scene breathes with movement — the churning foam, the rippling fabric, the endless rolling waves. Captured in cinematic wide-angle with dramatic natural lighting and rich, saturated colors.\"\n\nInput: \"형사가 어두운 골목에서 용의자를 벽에 밀어붙이며 심문하고 있다\"\nOutput: \"A weathered detective in a rumpled overcoat slams a suspect hard against a graffiti-covered brick wall in a narrow back alley, one forearm pressed firmly across the suspect's chest. A single flickering streetlamp overhead carves sharp shadows across both their faces, the detective's jaw set with cold intensity while the suspect's eyes dart with fear. Puddles on the cracked asphalt mirror the dim yellow light, and steam rises from a grate nearby, thickening the already claustrophobic air. The tension between the two figures is electric, the weight of unspoken secrets pressing in from every direction. Shot in gritty neo-noir style with high contrast chiaroscuro lighting, reminiscent of classic crime cinema.\"",
+        "우주복을 입은 하얀색 고양이가 카페에 앉아 커피를 마시고 있다.\n주변의 손님은 모두 강아지이고, 고양이를 노려보고 있다.\n밤 늦은 풍경",
+        400
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ShowText",
+      "pos": [
+        1093.5,
+        301.91322314049586
+      ],
+      "size": [
+        397.5,
+        157.5
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "QWEN_MODEL"
+    ],
+    [
+      11,
+      11,
+      0,
+      12,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.4641000000000008,
+      "offset": [
+        -7.172939006899014,
+        -68.3629191995085
+      ]
+    },
+    "frontendVersion": "1.42.15"
+  },
+  "version": 0.4
+}
