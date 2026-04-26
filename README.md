@@ -59,8 +59,15 @@ GPU VRAM이 부족하면 양자화 옵션을 사용하세요.
 
 ---
 
-## 의존 패키지
+## 설치
 
 ```bash
-pip install transformers accelerate bitsandbytes
+pip install -r requirements.txt
 ```
+
+---
+
+## 테스트
+
+`example_workflow/` 폴더에 예시 워크플로우가 포함되어 있습니다.  
+ComfyUI에서 **Load** 버튼으로 해당 파일을 열어 바로 테스트할 수 있습니다.
